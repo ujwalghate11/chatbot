@@ -27,7 +27,7 @@ body {
   height: 500px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #007bff; /* Add border to chatbot box */
+  border: 4px solid #007bff; /* Add border to chatbot box */
 }
 
 h1 {
@@ -42,7 +42,7 @@ h1 {
   overflow-y: auto; /* Enables vertical scrolling */
   margin-bottom: 20px; /* Space for the input box */
   padding: 10px; /* Add some padding inside the messages area */
-  border: 1px solid #ddd; /* Add border inside the messages area */
+  border: 4px solid #ddd; /* Add border inside the messages area */
   border-radius: 5px; /* Rounded corners for messages area */
   display: flex;
   flex-direction: column;
