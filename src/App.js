@@ -51,7 +51,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>LLM Chatbot</h1>
+      <h1>DataTeam LLM Chatbot</h1>
       <div className="messages">
         {messages.map((msg, index) => (
           <div

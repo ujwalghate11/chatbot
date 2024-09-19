@@ -23,7 +23,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   max-width: 600px;
-  width: 100%;
+  width: 110%;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@ input {
 }
 
 button {
-  background-color: #007bff; /* Primary color for the button */
+  background-color: #ff7700; /* Primary color for the button */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -101,7 +101,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #06b300; /* Darker shade on hover */
 }
 
 .speaker-icon {
@@ -115,5 +115,5 @@ button:hover {
 }
 
 .speaker-icon:hover {
-  color: #0056b3;
+  color: #15b300;
 }
