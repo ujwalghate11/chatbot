@@ -16,24 +16,30 @@ const App = () => {
   ];
 
   const getApiResponse = async (inputData) => {
-    const apiUrl = `https://jsonplaceholder.typicode.com/comments/${inputData}`;
+    const apiUrl = 'https://your-api-endpoint.com'; // Replace API endpoint
     try {
-      const response = await fetch(apiUrl);
-      if (response.ok) {
-        const data = await response.json(); 
-        return data.body; 
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "user_query": inputData }),
+      });
+      if (response.ok) { 
+        const data = await response.json();
+        return { status: 200, response: data.response };
       } else {
-        return `Error: ${response.status} - ${response.statusText}`;
+        return { status: response.status, message: response.statusText };
       }
     } catch (error) {
-      return `Exception occurred: ${error.message}`;
+      return { status: 500, message: `Exception occurred: ${error.message}` }; 
     }
   };
 
   const handleInputChange = async () => {
     if (queryInput.trim()) { 
       const apiResponse = await getApiResponse(queryInput);
-      const botResponseText = JSON.stringify(apiResponse);
+      const botResponseText = apiResponse.status === 200 ? apiResponse.response : `Error: ${apiResponse.message}`;
 
       setMessages([
         // ...messages,
@@ -65,7 +71,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>DataTeam LLM Chatbot</h1>
+      <h1>Tabby</h1>
       <div className="messages">
         {messages.map((msg, index) => (
           <div
@@ -76,8 +82,8 @@ const App = () => {
             {msg.type === 'bot' && (
               <span
                 className="speaker-icon"
-                onClick={() => speak(msg.text)} // Single-click to start reading
-                onDoubleClick={stopSpeech} // Double-click to stop reading
+                onClick={() => speak(msg.text)} 
+                onDoubleClick={stopSpeech} 
                 style={{ cursor: 'pointer', marginLeft: '10px' }}
               >
                 🔊
