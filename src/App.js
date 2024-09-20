@@ -7,8 +7,6 @@ const App = () => {
   const [queryInput, setQueryInput] = useState('');
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
-  const [micActive, setMicActive] = useState(false); 
-
   const sampleQuestions = [
     "What is the total GMV for yesterday?",
     "How is GMV of August 2024 compared to September 2024?",
